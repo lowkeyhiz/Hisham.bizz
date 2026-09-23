@@ -1,0 +1,1691 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <meta
+    name="description"
+    content="Hisham — Entrepreneur, AI Builder, and Founder of WizMarketing.agency."
+  />
+
+  <meta name="theme-color" content="#050505" />
+
+  <title>Hisham — Entrepreneur & AI Builder</title>
+
+  <style>
+    /* =====================================================
+       RESET
+    ===================================================== */
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family:
+        Inter,
+        -apple-system,
+        BlinkMacSystemFont,
+        "SF Pro Display",
+        "SF Pro Text",
+        "Segoe UI",
+        sans-serif;
+
+      background: #050505;
+      color: #f5f5f7;
+      overflow-x: hidden;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button,
+    a {
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    /* =====================================================
+       VARIABLES
+    ===================================================== */
+
+    :root {
+      --background: #050505;
+      --card: #0d0d0f;
+      --card-light: #111113;
+
+      --border: rgba(255, 255, 255, 0.09);
+      --border-hover: rgba(255, 255, 255, 0.2);
+
+      --text: #f5f5f7;
+      --muted: #8e8e93;
+      --muted-light: #b5b5ba;
+
+      --green: #62e38a;
+    }
+
+    /* =====================================================
+       BACKGROUND
+    ===================================================== */
+
+    .background {
+      position: fixed;
+      inset: 0;
+      z-index: -3;
+      pointer-events: none;
+
+      background:
+        radial-gradient(
+          circle at 50% -10%,
+          rgba(255, 255, 255, 0.13),
+          transparent 35%
+        ),
+        radial-gradient(
+          circle at 10% 50%,
+          rgba(90, 90, 255, 0.06),
+          transparent 30%
+        ),
+        #050505;
+
+      transition: transform 0.5s ease-out;
+    }
+
+    .grid {
+      position: fixed;
+      inset: 0;
+      z-index: -2;
+      pointer-events: none;
+
+      opacity: 0.035;
+
+      background-image:
+        linear-gradient(
+          rgba(255, 255, 255, 0.5) 1px,
+          transparent 1px
+        ),
+        linear-gradient(
+          90deg,
+          rgba(255, 255, 255, 0.5) 1px,
+          transparent 1px
+        );
+
+      background-size: 50px 50px;
+    }
+
+    /* =====================================================
+       NAVBAR
+    ===================================================== */
+
+    nav {
+      position: fixed;
+
+      top: 20px;
+      left: 50%;
+
+      transform: translateX(-50%);
+
+      width: min(92%, 950px);
+
+      padding: 12px 15px;
+
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      background: rgba(15, 15, 17, 0.72);
+
+      border: 1px solid var(--border);
+
+      border-radius: 18px;
+
+      backdrop-filter: blur(22px);
+      -webkit-backdrop-filter: blur(22px);
+
+      z-index: 100;
+    }
+
+    .logo {
+      font-size: 16px;
+      font-weight: 700;
+      letter-spacing: -0.5px;
+    }
+
+    .logo span {
+      color: #777;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 28px;
+
+      color: var(--muted);
+
+      font-size: 14px;
+    }
+
+    .nav-links a {
+      transition: 0.25s ease;
+    }
+
+    .nav-links a:hover {
+      color: white;
+    }
+
+    .nav-button {
+      padding: 9px 14px;
+
+      background: white;
+      color: black;
+
+      border-radius: 11px;
+
+      font-size: 13px;
+      font-weight: 600;
+
+      transition: 0.25s ease;
+    }
+
+    .nav-button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba(255, 255, 255, 0.12);
+    }
+
+    /* =====================================================
+       GENERAL
+    ===================================================== */
+
+    section {
+      width: min(1100px, 90%);
+      margin: auto;
+
+      padding: 120px 0;
+    }
+
+    .eyebrow {
+      margin-bottom: 20px;
+
+      color: var(--muted);
+
+      text-transform: uppercase;
+      letter-spacing: 2px;
+
+      font-size: 11px;
+      font-weight: 600;
+    }
+
+    .section-title {
+      margin-bottom: 20px;
+
+      font-size: clamp(38px, 6vw, 68px);
+
+      line-height: 0.98;
+
+      letter-spacing: -3.5px;
+    }
+
+    .section-description {
+      max-width: 620px;
+
+      color: var(--muted);
+
+      font-size: 16px;
+      line-height: 1.7;
+    }
+
+    /* =====================================================
+       HERO
+    ===================================================== */
+
+    .hero {
+      min-height: 100vh;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      text-align: center;
+
+      padding-top: 120px;
+    }
+
+    .hero-content {
+      width: 100%;
+      max-width: 950px;
+    }
+
+    .status {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+
+      margin-bottom: 30px;
+      padding: 8px 14px;
+
+      border: 1px solid var(--border);
+
+      background: rgba(255, 255, 255, 0.035);
+
+      border-radius: 999px;
+
+      color: #aaa;
+
+      font-size: 13px;
+    }
+
+    .status-dot {
+      width: 7px;
+      height: 7px;
+
+      border-radius: 50%;
+
+      background: var(--green);
+
+      box-shadow: 0 0 13px var(--green);
+    }
+
+    .hero h1 {
+      margin-bottom: 28px;
+
+      font-size: clamp(62px, 11vw, 135px);
+
+      line-height: 0.84;
+
+      letter-spacing: -8px;
+
+      font-weight: 800;
+    }
+
+    .hero h1 .gradient {
+      background:
+        linear-gradient(
+          90deg,
+          #ffffff 0%,
+          #cfcfd2 35%,
+          #666 100%
+        );
+
+      -webkit-background-clip: text;
+      background-clip: text;
+
+      color: transparent;
+    }
+
+    .hero-subtitle {
+      margin-bottom: 15px;
+
+      font-size: clamp(18px, 3vw, 25px);
+
+      color: #ddd;
+
+      letter-spacing: -0.5px;
+    }
+
+    .hero-description {
+      max-width: 680px;
+
+      margin: auto;
+
+      color: var(--muted);
+
+      font-size: clamp(16px, 2vw, 19px);
+
+      line-height: 1.65;
+    }
+
+    .hero-buttons {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+
+      gap: 12px;
+
+      margin-top: 35px;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+
+      padding: 13px 20px;
+
+      border-radius: 13px;
+
+      background: white;
+      color: black;
+
+      border: 1px solid white;
+
+      font-size: 14px;
+      font-weight: 600;
+
+      transition: 0.25s ease;
+    }
+
+    .button:hover {
+      transform: translateY(-3px);
+
+      box-shadow:
+        0 12px 35px rgba(255, 255, 255, 0.1);
+    }
+
+    .button.secondary {
+      background: rgba(255, 255, 255, 0.04);
+      color: white;
+
+      border-color: var(--border);
+    }
+
+    .button.secondary:hover {
+      border-color: var(--border-hover);
+    }
+
+    /* =====================================================
+       ABOUT
+    ===================================================== */
+
+    .about-grid {
+      display: grid;
+
+      grid-template-columns: 1fr 1.35fr;
+
+      gap: 20px;
+
+      margin-top: 60px;
+    }
+
+    .about-card {
+      padding: 32px;
+
+      border: 1px solid var(--border);
+
+      border-radius: 25px;
+
+      background:
+        linear-gradient(
+          145deg,
+          #111113,
+          #080808
+        );
+
+      transition: 0.3s ease;
+    }
+
+    .about-card:hover {
+      border-color: var(--border-hover);
+      transform: translateY(-4px);
+    }
+
+    .about-card h3 {
+      margin-bottom: 15px;
+
+      font-size: 25px;
+
+      letter-spacing: -1px;
+    }
+
+    .about-card p {
+      color: var(--muted);
+
+      font-size: 15px;
+
+      line-height: 1.75;
+    }
+
+    .founder-badge {
+      display: inline-flex;
+
+      margin-top: 25px;
+      padding: 8px 12px;
+
+      border: 1px solid var(--border);
+
+      border-radius: 999px;
+
+      background: rgba(255, 255, 255, 0.035);
+
+      color: #ccc;
+
+      font-size: 12px;
+    }
+
+    .founder-badge strong {
+      color: white;
+      margin-left: 4px;
+    }
+
+    .facts {
+      display: grid;
+
+      grid-template-columns: repeat(2, 1fr);
+
+      gap: 10px;
+
+      margin-top: 25px;
+    }
+
+    .fact {
+      padding: 17px;
+
+      border: 1px solid var(--border);
+
+      border-radius: 15px;
+
+      background: rgba(255, 255, 255, 0.025);
+    }
+
+    .fact strong {
+      display: block;
+
+      margin-bottom: 5px;
+
+      font-size: 20px;
+    }
+
+    .fact span {
+      color: var(--muted);
+
+      font-size: 12px;
+    }
+
+    /* =====================================================
+       WIZMARKETING FEATURE
+    ===================================================== */
+
+    .wiz-card {
+      position: relative;
+
+      margin-top: 60px;
+
+      padding: 45px;
+
+      border: 1px solid var(--border);
+
+      border-radius: 28px;
+
+      overflow: hidden;
+
+      background:
+        radial-gradient(
+          circle at 90% 10%,
+          rgba(255,255,255,0.09),
+          transparent 30%
+        ),
+        linear-gradient(
+          145deg,
+          #121214,
+          #080808
+        );
+    }
+
+    .wiz-card::before {
+      content: "";
+
+      position: absolute;
+
+      width: 250px;
+      height: 250px;
+
+      right: -100px;
+      bottom: -130px;
+
+      border-radius: 50%;
+
+      background: rgba(255,255,255,.05);
+
+      filter: blur(30px);
+    }
+
+    .wiz-label {
+      color: #888;
+
+      text-transform: uppercase;
+
+      letter-spacing: 2px;
+
+      font-size: 10px;
+
+      margin-bottom: 15px;
+    }
+
+    .wiz-card h3 {
+      position: relative;
+
+      font-size: clamp(34px, 6vw, 60px);
+
+      letter-spacing: -3px;
+
+      margin-bottom: 15px;
+    }
+
+    .wiz-card p {
+      position: relative;
+
+      max-width: 650px;
+
+      color: var(--muted);
+
+      line-height: 1.7;
+    }
+
+    .wiz-link {
+      position: relative;
+
+      display: inline-flex;
+
+      margin-top: 25px;
+
+      padding: 11px 15px;
+
+      border: 1px solid var(--border);
+
+      border-radius: 12px;
+
+      font-size: 13px;
+
+      background: rgba(255,255,255,.04);
+
+      transition: .25s;
+    }
+
+    .wiz-link:hover {
+      background: white;
+      color: black;
+    }
+
+    /* =====================================================
+       PROJECTS
+    ===================================================== */
+
+    .projects {
+      display: grid;
+
+      grid-template-columns: repeat(2, 1fr);
+
+      gap: 18px;
+
+      margin-top: 60px;
+    }
+
+    .project {
+      position: relative;
+
+      min-height: 310px;
+
+      padding: 30px;
+
+      border: 1px solid var(--border);
+
+      border-radius: 24px;
+
+      overflow: hidden;
+
+      background:
+        linear-gradient(
+          145deg,
+          #111113,
+          #080808
+        );
+
+      transition: 0.35s ease;
+    }
+
+    .project:hover {
+      transform: translateY(-7px);
+
+      border-color: var(--border-hover);
+    }
+
+    .project-number {
+      color: #555;
+
+      font-size: 12px;
+
+      margin-bottom: 85px;
+    }
+
+    .project h3 {
+      margin-bottom: 10px;
+
+      font-size: 29px;
+
+      letter-spacing: -1px;
+    }
+
+    .project p {
+      max-width: 480px;
+
+      color: var(--muted);
+
+      line-height: 1.65;
+
+      font-size: 14px;
+    }
+
+    .project-tag {
+      display: inline-block;
+
+      margin-top: 20px;
+
+      padding: 6px 10px;
+
+      border: 1px solid var(--border);
+
+      border-radius: 999px;
+
+      color: #999;
+
+      font-size: 10px;
+
+      text-transform: uppercase;
+
+      letter-spacing: .8px;
+    }
+
+    /* =====================================================
+       SKILLS
+    ===================================================== */
+
+    .skills {
+      display: flex;
+
+      flex-wrap: wrap;
+
+      gap: 10px;
+
+      margin-top: 50px;
+    }
+
+    .skill {
+      padding: 12px 16px;
+
+      border: 1px solid var(--border);
+
+      border-radius: 999px;
+
+      background: rgba(255,255,255,.035);
+
+      color: #ccc;
+
+      font-size: 13px;
+
+      transition: .2s ease;
+    }
+
+    .skill:hover {
+      background: white;
+
+      color: black;
+
+      transform: translateY(-2px);
+    }
+
+    /* =====================================================
+       CONTACT
+    ===================================================== */
+
+    .cta {
+      text-align: center;
+
+      padding: 160px 20px;
+    }
+
+    .cta h2 {
+      margin-bottom: 25px;
+
+      font-size: clamp(50px, 8vw, 90px);
+
+      letter-spacing: -5px;
+
+      line-height: .92;
+    }
+
+    .cta p {
+      max-width: 570px;
+
+      margin: auto;
+
+      color: var(--muted);
+
+      line-height: 1.7;
+    }
+
+    .contact-links {
+      display: flex;
+
+      justify-content: center;
+
+      flex-wrap: wrap;
+
+      gap: 10px;
+
+      margin-top: 30px;
+    }
+
+    .contact-link {
+      padding: 12px 16px;
+
+      border: 1px solid var(--border);
+
+      border-radius: 12px;
+
+      background: rgba(255,255,255,.035);
+
+      color: #ccc;
+
+      font-size: 13px;
+
+      transition: .25s;
+    }
+
+    .contact-link:hover {
+      background: white;
+
+      color: black;
+    }
+
+    /* =====================================================
+       FOOTER
+    ===================================================== */
+
+    footer {
+      width: min(1100px, 90%);
+
+      margin: auto;
+
+      padding: 30px 0 40px;
+
+      border-top: 1px solid var(--border);
+
+      display: flex;
+
+      align-items: center;
+
+      justify-content: space-between;
+
+      gap: 20px;
+
+      color: #666;
+
+      font-size: 12px;
+    }
+
+    .socials {
+      display: flex;
+
+      gap: 18px;
+    }
+
+    .socials a {
+      transition: .2s;
+    }
+
+    .socials a:hover {
+      color: white;
+    }
+
+    /* =====================================================
+       REVEAL ANIMATION
+    ===================================================== */
+
+    .reveal {
+      opacity: 0;
+
+      transform: translateY(25px);
+
+      transition:
+        opacity .8s ease,
+        transform .8s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+
+      transform: translateY(0);
+    }
+
+    /* =====================================================
+       MOBILE
+    ===================================================== */
+
+    @media (max-width: 700px) {
+
+      nav {
+        top: 10px;
+
+        width: 94%;
+      }
+
+      .nav-links {
+        display: none;
+      }
+
+      section {
+        padding: 90px 0;
+      }
+
+      .hero {
+        min-height: 100svh;
+
+        padding-top: 100px;
+      }
+
+      .hero h1 {
+        letter-spacing: -5px;
+      }
+
+      .about-grid,
+      .projects {
+        grid-template-columns: 1fr;
+      }
+
+      .wiz-card {
+        padding: 30px;
+      }
+
+      .project {
+        min-height: 270px;
+      }
+
+      .cta {
+        padding: 110px 15px;
+      }
+
+      .cta h2 {
+        letter-spacing: -4px;
+      }
+
+      footer {
+        flex-direction: column;
+
+        text-align: center;
+      }
+    }
+
+    /* =====================================================
+       REDUCED MOTION
+    ===================================================== */
+
+    @media (prefers-reduced-motion: reduce) {
+
+      *,
+      *::before,
+      *::after {
+        scroll-behavior: auto !important;
+
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+
+        transition-duration: 0.01ms !important;
+      }
+    }
+
+  </style>
+</head>
+
+<body>
+
+  <!-- BACKGROUND -->
+
+  <div class="background"></div>
+  <div class="grid"></div>
+
+
+  <!-- =====================================================
+       NAVIGATION
+  ===================================================== -->
+
+  <nav>
+
+    <a href="#" class="logo">
+      Hisham<span>.</span>
+    </a>
+
+    <div class="nav-links">
+
+      <a href="#about">About</a>
+
+      <a href="#work">Work</a>
+
+      <a href="#skills">Skills</a>
+
+      <a href="#contact">Contact</a>
+
+    </div>
+
+    <a href="#contact" class="nav-button">
+      Let's talk
+    </a>
+
+  </nav>
+
+
+  <!-- =====================================================
+       HERO
+  ===================================================== -->
+
+  <section class="hero">
+
+    <div class="hero-content">
+
+      <div class="status">
+
+        <span class="status-dot"></span>
+
+        Building the future with AI
+
+      </div>
+
+
+      <h1>
+
+        Hisham<span class="gradient">.</span>
+
+      </h1>
+
+
+      <div class="hero-subtitle">
+
+        Entrepreneur · AI Builder · Founder
+
+      </div>
+
+
+      <p class="hero-description">
+
+        I build AI-powered products, automation systems and
+        businesses that turn ideas into reality.
+
+      </p>
+
+
+      <div class="hero-buttons">
+
+        <a href="#work" class="button">
+          Explore my work
+        </a>
+
+        <a href="#contact" class="button secondary">
+          Get in touch →
+        </a>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- =====================================================
+       ABOUT
+  ===================================================== -->
+
+  <section id="about" class="reveal">
+
+    <div class="eyebrow">
+      01 / About
+    </div>
+
+
+    <h2 class="section-title">
+
+      Curious enough<br>
+      to build anything.
+
+    </h2>
+
+
+    <div class="about-grid">
+
+
+      <div class="about-card">
+
+        <h3>
+          Hey, I'm Hisham.
+        </h3>
+
+        <p>
+
+          I'm an entrepreneur and AI builder focused on
+          creating useful products, automation systems and
+          businesses at the intersection of technology and growth.
+
+        </p>
+
+
+        <div class="founder-badge">
+
+          Founder of
+
+          <strong>
+            WizMarketing.agency
+          </strong>
+
+        </div>
+
+
+        <div class="facts">
+
+          <div class="fact">
+
+            <strong>
+              AI
+            </strong>
+
+            <span>
+              Agents & automation
+            </span>
+
+          </div>
+
+
+          <div class="fact">
+
+            <strong>
+              Build
+            </strong>
+
+            <span>
+              Products & startups
+            </span>
+
+          </div>
+
+
+          <div class="fact">
+
+            <strong>
+              Growth
+            </strong>
+
+            <span>
+              Marketing & sales
+            </span>
+
+          </div>
+
+
+          <div class="fact">
+
+            <strong>
+              ∞
+            </strong>
+
+            <span>
+              Always learning
+            </span>
+
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <div class="about-card">
+
+        <h3>
+          What I do
+        </h3>
+
+        <p>
+
+          I experiment with AI agents, SaaS products,
+          marketing systems and automation workflows.
+
+          I'm particularly interested in using AI to remove
+          repetitive work and help businesses operate faster.
+
+        </p>
+
+
+        <br>
+
+
+        <p>
+
+          Alongside my AI projects, I'm building
+          <strong>WizMarketing.agency</strong> — a performance
+          marketing agency focused on helping businesses generate
+          leads and grow through digital advertising.
+
+        </p>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- =====================================================
+       WIZMARKETING
+  ===================================================== -->
+
+  <section class="reveal">
+
+    <div class="eyebrow">
+      02 / Company
+    </div>
+
+
+    <div class="wiz-card">
+
+      <div class="wiz-label">
+        Founded & built by Hisham
+      </div>
+
+
+      <h3>
+        WizMarketing<span class="gradient">.</span>agency
+      </h3>
+
+
+      <p>
+
+        A performance marketing agency focused on helping
+        businesses generate qualified leads through paid
+        advertising, modern marketing systems and automation.
+
+      </p>
+
+
+      <a
+        href="https://wizmarketing.agency"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="wiz-link"
+      >
+        Visit WizMarketing.agency ↗
+      </a>
+
+    </div>
+
+  </section>
+
+
+  <!-- =====================================================
+       PROJECTS
+  ===================================================== -->
+
+  <section id="work" class="reveal">
+
+    <div class="eyebrow">
+      03 / Selected Work
+    </div>
+
+
+    <h2 class="section-title">
+
+      Things I've<br>
+      been building.
+
+    </h2>
+
+
+    <p class="section-description">
+
+      A selection of businesses, products and experiments
+      I've worked on.
+
+    </p>
+
+
+    <div class="projects">
+
+
+      <!-- PROJECT 01 -->
+
+      <a href="https://wizmarketing.agency"
+         target="_blank"
+         rel="noopener noreferrer"
+         class="project">
+
+        <div class="project-number">
+          01
+        </div>
+
+        <h3>
+          WizMarketing
+        </h3>
+
+        <p>
+
+          Performance marketing agency focused on helping
+          businesses generate leads through paid advertising.
+
+        </p>
+
+        <span class="project-tag">
+          Agency · Marketing
+        </span>
+
+      </a>
+
+
+      <!-- PROJECT 02 -->
+
+      <a href="#" class="project">
+
+        <div class="project-number">
+          02
+        </div>
+
+        <h3>
+          AI Agents
+        </h3>
+
+        <p>
+
+          Intelligent agents designed to automate research,
+          outreach, lead generation and repetitive business tasks.
+
+        </p>
+
+        <span class="project-tag">
+          AI · Automation
+        </span>
+
+      </a>
+
+
+      <!-- PROJECT 03 -->
+
+      <a href="#" class="project">
+
+        <div class="project-number">
+          03
+        </div>
+
+        <h3>
+          Emaily
+        </h3>
+
+        <p>
+
+          An AI-powered email automation concept designed
+          around smarter outreach and sales workflows.
+
+        </p>
+
+        <span class="project-tag">
+          SaaS · AI
+        </span>
+
+      </a>
+
+
+      <!-- PROJECT 04 -->
+
+      <a href="#" class="project">
+
+        <div class="project-number">
+          04
+        </div>
+
+        <h3>
+          Nova
+        </h3>
+
+        <p>
+
+          An experimental AI-powered search and productivity
+          experience exploring new ways to interact with information.
+
+        </p>
+
+        <span class="project-tag">
+          AI · Product
+        </span>
+
+      </a>
+
+
+    </div>
+
+  </section>
+
+
+  <!-- =====================================================
+       SKILLS
+  ===================================================== -->
+
+  <section id="skills" class="reveal">
+
+    <div class="eyebrow">
+      04 / Toolkit
+    </div>
+
+
+    <h2 class="section-title">
+
+      Tools I use<br>
+      to build.
+
+    </h2>
+
+
+    <p class="section-description">
+
+      A constantly evolving stack. I care more about what
+      can be built than which tool is used.
+
+    </p>
+
+
+    <div class="skills">
+
+      <span class="skill">AI Agents</span>
+
+      <span class="skill">OpenAI</span>
+
+      <span class="skill">Gemini</span>
+
+      <span class="skill">NVIDIA NIM</span>
+
+      <span class="skill">React</span>
+
+      <span class="skill">Next.js</span>
+
+      <span class="skill">JavaScript</span>
+
+      <span class="skill">Node.js</span>
+
+      <span class="skill">Supabase</span>
+
+      <span class="skill">Vercel</span>
+
+      <span class="skill">GitHub</span>
+
+      <span class="skill">Shopify</span>
+
+      <span class="skill">Meta Ads</span>
+
+      <span class="skill">Google Ads</span>
+
+      <span class="skill">Automation</span>
+
+      <span class="skill">SaaS</span>
+
+    </div>
+
+  </section>
+
+
+  <!-- =====================================================
+       CONTACT
+  ===================================================== -->
+
+  <section id="contact" class="cta reveal">
+
+    <div class="eyebrow">
+      05 / Contact
+    </div>
+
+
+    <h2>
+
+      Let's build<br>
+      something.
+
+    </h2>
+
+
+    <p>
+
+      Have an idea, project, collaboration or just want
+      to talk about AI, startups and technology?
+
+      Let's connect.
+
+    </p>
+
+
+    <div class="contact-links">
+
+
+      <!-- EMAIL -->
+
+      <a
+        class="contact-link"
+        href="mailto:mohammedhisham.business@gmail.com"
+      >
+
+        ✉ Email
+
+      </a>
+
+
+      <!-- INSTAGRAM -->
+
+      <a
+        class="contact-link"
+        href="https://instagram.com/hisham.bizz"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+
+        ◎ Instagram
+
+      </a>
+
+
+      <!-- WIZMARKETING -->
+
+      <a
+        class="contact-link"
+        href="https://wizmarketing.agency"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+
+        ◇ WizMarketing
+
+      </a>
+
+
+      <!-- GITHUB -->
+
+      <a
+        class="contact-link"
+        href="https://github.com/lowkeyhiz"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+
+        GitHub ↗
+
+      </a>
+
+
+    </div>
+
+  </section>
+
+
+  <!-- =====================================================
+       FOOTER
+  ===================================================== -->
+
+  <footer>
+
+    <span>
+
+      © 2026 Hisham.
+      Founder of WizMarketing.agency
+
+    </span>
+
+
+    <div class="socials">
+
+      <a
+        href="https://instagram.com/hisham.bizz"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        Instagram
+      </a>
+
+
+      <a
+        href="mailto:mohammedhisham.business@gmail.com"
+      >
+        Email
+      </a>
+
+
+      <a
+        href="https://wizmarketing.agency"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        WizMarketing
+      </a>
+
+    </div>
+
+  </footer>
+
+
+  <!-- =====================================================
+       JAVASCRIPT
+  ===================================================== -->
+
+  <script>
+
+    /* -----------------------------------------------------
+       SCROLL REVEAL
+    ----------------------------------------------------- */
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+
+        entries.forEach((entry) => {
+
+          if (entry.isIntersecting) {
+
+            entry.target.classList.add("visible");
+
+            observer.unobserve(entry.target);
+
+          }
+
+        });
+
+      },
+
+      {
+        threshold: 0.12
+      }
+    );
+
+
+    document
+      .querySelectorAll(".reveal")
+      .forEach((element) => {
+
+        observer.observe(element);
+
+      });
+
+
+    /* -----------------------------------------------------
+       MOUSE PARALLAX
+    ----------------------------------------------------- */
+
+    const background =
+      document.querySelector(".background");
+
+
+    document.addEventListener(
+      "mousemove",
+      (event) => {
+
+        const x =
+          (event.clientX / window.innerWidth - 0.5) * 10;
+
+        const y =
+          (event.clientY / window.innerHeight - 0.5) * 10;
+
+
+        background.style.transform =
+          `translate(${x}px, ${y}px)`;
+
+      }
+    );
+
+
+    /* -----------------------------------------------------
+       ACTIVE NAVIGATION
+    ----------------------------------------------------- */
+
+    const sections =
+      document.querySelectorAll("section[id]");
+
+    const navLinks =
+      document.querySelectorAll(".nav-links a");
+
+
+    window.addEventListener("scroll", () => {
+
+      let current = "";
+
+      sections.forEach((section) => {
+
+        const sectionTop =
+          section.offsetTop - 180;
+
+        if (
+          window.scrollY >= sectionTop
+        ) {
+
+          current = section.getAttribute("id");
+
+        }
+
+      });
+
+
+      navLinks.forEach((link) => {
+
+        link.style.color = "";
+
+        if (
+          link.getAttribute("href") === `#${current}`
+        ) {
+
+          link.style.color = "white";
+
+        }
+
+      });
+
+    });
+
+
+    /* -----------------------------------------------------
+       YEAR
+    ----------------------------------------------------- */
+
+    const year = new Date().getFullYear();
+
+    const footerText =
+      document.querySelector("footer span");
+
+    footerText.innerHTML =
+      `© ${year} Hisham. Founder of WizMarketing.agency`;
+
+  </script>
+
+</body>
+</html>
